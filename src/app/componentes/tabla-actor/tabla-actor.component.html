@@ -1,0 +1,29 @@
+<div class="tabla">
+  <label>Tabla-Actores</label>
+  <div class="tabla-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>INDEX</th>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>USUARIO</th>
+          <th>CORREO</th>
+          <th>PAIS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let actor of lista; let i = index">
+          <td>{{ i }}</td>
+          <td>{{ actor.id }}</td>
+          <td>{{ actor.nombre }}</td>
+          <td>{{ actor.apellido }}</td>
+          <td>{{ actor.usuario }}</td>
+          <td>{{ actor.correo }}</td>
+          <td>{{ actor.pais }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

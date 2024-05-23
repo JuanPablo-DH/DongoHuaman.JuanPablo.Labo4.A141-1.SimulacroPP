@@ -1,0 +1,34 @@
+.tabla {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  background-color: #f9f9f9;
+}
+.tabla-scroll {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f1f1f1;
+}
+
+th,
+td {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #ececec;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

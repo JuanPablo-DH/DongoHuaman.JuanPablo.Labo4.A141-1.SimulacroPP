@@ -1,0 +1,90 @@
+/*
+.nav-bar-container {
+  //background-color: white;
+  background: radial-gradient(
+    circle,
+    rgba(85, 85, 85, 1) 0%,
+    rgba(75, 75, 75, 1) 7%,
+    rgba(69, 69, 69, 1) 11%,
+    rgba(60, 60, 60, 1) 17%,
+    rgba(53, 53, 53, 1) 22%,
+    rgba(46, 46, 46, 1) 27%,
+    rgba(43, 43, 43, 1) 29%,
+    rgba(41, 41, 41, 1) 35%,
+    rgba(38, 38, 38, 1) 41%,
+    rgba(35, 35, 35, 1) 46%,
+    rgba(30, 30, 30, 1) 55%,
+    rgba(30, 30, 30, 1) 60%,
+    rgba(29, 29, 29, 1) 66%,
+    rgba(29, 29, 29, 1) 69%,
+    rgba(28, 28, 28, 1) 74%,
+    rgba(23, 23, 23, 1) 77%,
+    rgba(21, 21, 21, 1) 83%,
+    rgba(18, 18, 18, 1) 88%,
+    rgba(14, 14, 14, 1) 95%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border-bottom: solid 2px white;
+}
+
+.btn {
+  //border: solid 2px black;
+  color: white;
+  white-space: nowrap; //Evita que se agranden los botones
+}
+
+.separador {
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 125%;
+  width: 2px;
+  background-color: white;
+}
+
+.separador-botones {
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 30px;
+  width: 2px;
+  background-color: white;
+}
+
+.info-usuario {
+  margin-right: 10px;
+}
+
+.juego-uno,
+.juego-dos,
+.juego-tres,
+.juego-cuatro {
+  // width: 150px;
+  margin-left: 10px;
+}
+*/
+
+.navbar {
+  border-bottom: solid 2px white;
+  background: radial-gradient(
+    circle,
+    rgba(85, 85, 85, 1) 0%,
+    rgba(75, 75, 75, 1) 7%,
+    rgba(69, 69, 69, 1) 11%,
+    rgba(60, 60, 60, 1) 17%,
+    rgba(53, 53, 53, 1) 22%,
+    rgba(46, 46, 46, 1) 27%,
+    rgba(43, 43, 43, 1) 29%,
+    rgba(41, 41, 41, 1) 35%,
+    rgba(38, 38, 38, 1) 41%,
+    rgba(35, 35, 35, 1) 46%,
+    rgba(30, 30, 30, 1) 55%,
+    rgba(30, 30, 30, 1) 60%,
+    rgba(29, 29, 29, 1) 66%,
+    rgba(29, 29, 29, 1) 69%,
+    rgba(28, 28, 28, 1) 74%,
+    rgba(23, 23, 23, 1) 77%,
+    rgba(21, 21, 21, 1) 83%,
+    rgba(18, 18, 18, 1) 88%,
+    rgba(14, 14, 14, 1) 95%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}

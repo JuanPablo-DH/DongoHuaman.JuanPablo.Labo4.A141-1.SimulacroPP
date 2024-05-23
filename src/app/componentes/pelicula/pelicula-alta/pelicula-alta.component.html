@@ -1,0 +1,19 @@
+<div class="container">
+  <p>Pelicula-Alta</p>
+  <div *ngIf="!mostrarBotonAlta">
+    <p>Alta</p>
+    <p>id: ...</p>
+    <p>nombre: ...</p>
+    <p>tipo: ...</p>
+    <p>fecha de estreno: ...</p>
+    <p>cantidad de publico: ...</p>
+    <p>foto de pelicula: ...</p>
+  </div>
+
+  <button *ngIf="mostrarBotonAlta" routerLink="/peliculas/alta">
+    Pelicula Alta
+  </button>
+  <button *ngIf="mostrarBotonVolver" routerLink="/busqueda">
+    Volver a Busqueda
+  </button>
+</div>

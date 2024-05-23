@@ -1,0 +1,30 @@
+<!--<p>tabla-pelicula works!</p>-->
+<div class="tabla">
+  <label>Tabla-Peliculas</label>
+  <div class="tabla-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>INDEX</th>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>TIPO</th>
+          <th>FECHA DE ESTRENO</th>
+          <th>CANTIDAD DE PUBLICO</th>
+          <th>FOTO DE PELICULA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pelicula of lista; let i = index">
+          <td>{{ i }}</td>
+          <td>{{ pelicula.id }}</td>
+          <td>{{ pelicula.nombre }}</td>
+          <td>{{ pelicula.tipo }}</td>
+          <td>{{ getFormatoFechaEstreno(pelicula) }}</td>
+          <td>{{ pelicula.cantidadDePublico }}</td>
+          <td><img [src]="pelicula.fotoPelicula" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
