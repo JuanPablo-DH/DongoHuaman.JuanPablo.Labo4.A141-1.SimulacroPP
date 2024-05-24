@@ -1,22 +1,24 @@
 <app-nav-bar (handlerCambiarSeccion)="recibirSeccion($event)"></app-nav-bar>
 <!--<router-outlet></router-outlet>-->
-<app-pelicula-listado
-  *ngIf="seccion === 1"
-  [mostrarBotonVolver]="false"
-></app-pelicula-listado>
-<app-detalle-pelicula *ngIf="seccion === 1"></app-detalle-pelicula>
-<app-pelicula-alta
-  *ngIf="seccion === 1"
-  [mostrarBotonVolver]="false"
-  [mostrarBotonAlta]="true"
-></app-pelicula-alta>
+<div class="container-outlet">
+  <app-pelicula-listado
+    *ngIf="seccion === 1"
+    [mostrarBotonVolver]="false"
+  ></app-pelicula-listado>
+  <app-detalle-pelicula *ngIf="seccion === 1"></app-detalle-pelicula>
+  <app-pelicula-alta
+    *ngIf="seccion === 1"
+    [mostrarBotonVolver]="false"
+    [mostrarBotonAlta]="true"
+  ></app-pelicula-alta>
 
-<app-actor-listado
-  *ngIf="seccion === 2"
-  [mostrarBotonVolver]="false"
-></app-actor-listado>
-<app-actor-alta
-  *ngIf="seccion === 2"
-  [mostrarBotonVolver]="false"
-  [mostrarBotonAlta]="true"
-></app-actor-alta>
+  <app-actor-listado
+    *ngIf="seccion === 2"
+    [mostrarBotonVolver]="false"
+  ></app-actor-listado>
+  <app-actor-alta
+    *ngIf="seccion === 2"
+    [mostrarBotonVolver]="false"
+    [mostrarBotonAlta]="true"
+  ></app-actor-alta>
+</div>

@@ -2,3 +2,10 @@
   border: 2px solid black;
   border-radius: 15px;
 }
+.boton-volver {
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+.boton-router-alta {
+  margin-bottom: 15px;
+}

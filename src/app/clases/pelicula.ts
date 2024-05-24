@@ -5,6 +5,7 @@ export class Pelicula {
   fechaEstreno: Date;
   cantidadDePublico: number;
   fotoPelicula: string;
+
   constructor() {
     this.id = 0;
     this.nombre = '';
@@ -13,6 +14,14 @@ export class Pelicula {
     this.cantidadDePublico = 0;
     this.fotoPelicula = '';
   }
+
+  static getFormatoFechaEstreno(objeto: any): string {
+    const day = ('0' + objeto.fechaEstreno.getDate()).slice(-2);
+    const month = ('0' + (objeto.fechaEstreno.getMonth() + 1)).slice(-2);
+    const year = objeto.fechaEstreno.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
   static toObjetoAtributoString(objeto: Pelicula) {
     return {
       id: objeto.id.toString(),
@@ -32,11 +41,5 @@ export class Pelicula {
     ret.cantidadDePublico = Number(objeto.cantidadDePublico);
     ret.fotoPelicula = objeto.fotoPelicula;
     return ret;
-  }
-  static getFormatoFechaEstreno(objeto: any): string {
-    const day = ('0' + objeto.fechaEstreno.getDate()).slice(-2);
-    const month = ('0' + (objeto.fechaEstreno.getMonth() + 1)).slice(-2);
-    const year = objeto.fechaEstreno.getFullYear();
-    return `${day}/${month}/${year}`;
   }
 }

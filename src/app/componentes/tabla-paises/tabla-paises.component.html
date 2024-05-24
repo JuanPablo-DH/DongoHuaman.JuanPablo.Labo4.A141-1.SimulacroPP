@@ -1,0 +1,21 @@
+<div class="container">
+  <label>Tabla-Paises</label>
+  <div class="tabla-scroll">
+    <table>
+      <thead>
+        <tr>
+          <!--<th>INDEX</th>-->
+          <th>PAIS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of lista; let i = index">
+          <!--<td>{{ i }}</td>-->
+          <td>
+            <img [src]="item.banderaPng" (click)="elegirPais(item.pais)" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

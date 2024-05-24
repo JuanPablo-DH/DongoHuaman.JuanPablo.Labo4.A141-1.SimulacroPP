@@ -1,4 +1,11 @@
 .container {
   border: 2px solid black;
   border-radius: 15px;
+  margin-top: 15px;
+}
+.peliculas {
+  margin-bottom: 10px;
+}
+.boton-volver {
+  margin-bottom: 14px;
 }

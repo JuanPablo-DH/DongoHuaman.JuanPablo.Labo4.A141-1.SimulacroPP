@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class NavBarComponent implements OnInit {
   public email: string = '';
-  seccion: number = 1;
   @Output() handlerCambiarSeccion = new EventEmitter<any>();
 
   constructor(private router: Router) {}
@@ -21,7 +20,6 @@ export class NavBarComponent implements OnInit {
   cerrarSesion() {}
 
   cambiarSeccion(seccion: number) {
-    this.seccion = seccion;
-    this.handlerCambiarSeccion.emit(this.seccion);
+    this.handlerCambiarSeccion.emit(seccion);
   }
 }

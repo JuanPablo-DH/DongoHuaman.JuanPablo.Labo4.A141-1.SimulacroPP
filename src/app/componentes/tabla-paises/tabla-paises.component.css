@@ -30,3 +30,8 @@ th {
 tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
+
+img {
+  height: 100px;
+  width: 150px;
+}

@@ -1,16 +1,63 @@
 <div class="container">
   <p>Actor-Alta</p>
   <div *ngIf="!mostrarBotonAlta">
-    <p>Alta</p>
-    <p>id: ...</p>
-    <p>nombre: ...</p>
-    <p>apellido: ...</p>
-    <p>usuario: ...</p>
-    <p>correo: ...</p>
-    <p>pais: ...</p>
+    <div class="container-alta">
+      <div class="paises">
+        <app-tabla-paises
+          (handlerElegirPais)="recibirPais($event)"
+        ></app-tabla-paises>
+      </div>
+      <div class="inputs">
+        <p>Inputs-Actor</p>
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Ingrese su nombre"
+          [(ngModel)]="inputNombre"
+        /><br />
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Ingrese su apellido"
+          [(ngModel)]="inputApellido"
+        /><br />
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Ingrese su usuario"
+          [(ngModel)]="inputUsuario"
+        /><br />
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Ingrese su correo"
+          [(ngModel)]="inputCorreo"
+        /><br />
+        <input
+          class="form-control"
+          type="text"
+          disabled="true"
+          placeholder="Seleccione su pais"
+          [(ngModel)]="inputPais"
+        /><br />
+        <button class="btn btn-dark boton-accion-alta" (click)="realizarAlta()">
+          Realizar Alta
+        </button>
+        <button
+          *ngIf="mostrarBotonVolver"
+          class="btn btn-dark boton-volver"
+          routerLink="/busqueda"
+        >
+          Volver a Busqueda
+        </button>
+      </div>
+    </div>
   </div>
-  <button *ngIf="mostrarBotonAlta" routerLink="/actor/alta">Actor Alta</button>
-  <button *ngIf="mostrarBotonVolver" routerLink="/busqueda">
-    Volver a Busqueda
+  <button
+    *ngIf="mostrarBotonAlta"
+    class="btn btn-dark boton-router-alta"
+    routerLink="/actor/alta"
+  >
+    Actor Alta
   </button>
 </div>

@@ -45,3 +45,6 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+# NO SUBIR ESTE ARCHIVO
+/src/app/app.config.ts

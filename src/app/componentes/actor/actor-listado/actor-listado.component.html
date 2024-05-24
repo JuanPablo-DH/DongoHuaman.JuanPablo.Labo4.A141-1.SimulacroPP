@@ -1,7 +1,15 @@
 <div class="container">
   <p>Actor-Listado</p>
-  <app-tabla-actor [lista]="actoresHardcodeados"></app-tabla-actor>
-  <button *ngIf="mostrarBotonVolver" routerLink="/busqueda">
-    Volver a buqueda
-  </button>
+  <div class="container-listado">
+    <div class="actores">
+      <app-tabla-actor [lista]="actoresHardcodeados"></app-tabla-actor>
+    </div>
+    <button
+      *ngIf="mostrarBotonVolver"
+      class="btn btn-dark boton-volver"
+      routerLink="/busqueda"
+    >
+      Volver a busqueda
+    </button>
+  </div>
 </div>

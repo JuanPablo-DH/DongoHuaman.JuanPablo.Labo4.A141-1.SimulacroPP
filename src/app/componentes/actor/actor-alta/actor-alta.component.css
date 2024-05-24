@@ -2,3 +2,25 @@
   border: 2px solid black;
   border-radius: 15px;
 }
+.container-alta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /*  border: 2px solid grey; */
+  border-radius: 15px;
+  margin-bottom: 14px;
+}
+.inputs {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.boton-volver {
+  margin-top: 10px;
+}
+.boton-router-alta {
+  margin-bottom: 15px;
+}

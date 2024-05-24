@@ -10,10 +10,18 @@
     <p>foto de pelicula: ...</p>
   </div>
 
-  <button *ngIf="mostrarBotonAlta" routerLink="/peliculas/alta">
+  <button
+    *ngIf="mostrarBotonAlta"
+    class="btn btn-dark boton-router-alta"
+    routerLink="/peliculas/alta"
+  >
     Pelicula Alta
   </button>
-  <button *ngIf="mostrarBotonVolver" routerLink="/busqueda">
+  <button
+    *ngIf="mostrarBotonVolver"
+    class="btn btn-dark boton-volver"
+    routerLink="/busqueda"
+  >
     Volver a Busqueda
   </button>
 </div>
