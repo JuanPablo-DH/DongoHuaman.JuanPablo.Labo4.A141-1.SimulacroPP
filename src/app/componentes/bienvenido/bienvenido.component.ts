@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-bienvenido',
@@ -8,4 +8,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './bienvenido.component.html',
   styleUrl: './bienvenido.component.css',
 })
-export class BienvenidoComponent {}
+export class BienvenidoComponent implements OnInit {
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.router.navigateByUrl('/busqueda');
+    }, 2000);
+  }
+}

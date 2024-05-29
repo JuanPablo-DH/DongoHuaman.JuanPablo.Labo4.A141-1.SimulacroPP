@@ -7,6 +7,8 @@ import { PeliculaAltaComponent } from '../pelicula/pelicula-alta/pelicula-alta.c
 import { ActorAltaComponent } from '../actor/actor-alta/actor-alta.component';
 import { DetallePeliculaComponent } from '../detalle-pelicula/detalle-pelicula.component';
 import { RouterOutlet } from '@angular/router';
+import { Pelicula } from '../../clases/pelicula';
+import { ActorPeliculaComponent } from '../actor/actor-pelicula/actor-pelicula.component';
 
 @Component({
   selector: 'app-busqueda',
@@ -20,14 +22,20 @@ import { RouterOutlet } from '@angular/router';
     DetallePeliculaComponent,
     ActorListadoComponent,
     ActorAltaComponent,
+    ActorPeliculaComponent,
   ],
   templateUrl: './busqueda.component.html',
   styleUrl: './busqueda.component.css',
 })
 export class BusquedaComponent {
+  peliculaSeleccionada: Pelicula = new Pelicula();
   seccion = 1;
 
-  recibirSeccion($event: any) {
+  recibirSeccion($event: number) {
     this.seccion = $event;
+  }
+
+  recibirPelicula($event: Pelicula) {
+    this.peliculaSeleccionada = $event;
   }
 }

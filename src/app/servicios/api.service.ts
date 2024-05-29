@@ -27,7 +27,7 @@ export class ApiService {
         }
       }
     } catch (e) {
-      console.log(e);
+      console.log('ApiService.getPaises()', e);
     } finally {
       return listaBanderas;
     }

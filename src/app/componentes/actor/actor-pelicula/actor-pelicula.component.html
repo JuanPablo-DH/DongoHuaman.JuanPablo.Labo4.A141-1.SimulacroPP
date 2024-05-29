@@ -1,0 +1,37 @@
+<div class="container">
+  Actor-Pelicula
+  <!-- #region Actor-Listado -->
+  <app-actor-listado
+    [detallado]="false"
+    [mostrarBotonVolver]="false"
+    (handlerSeleccionarActor)="recibirActor($event)"
+  ></app-actor-listado>
+  <!-- #endregion Actor-Listado -->
+
+  <!-- #region Pelicula-Listado -->
+  <app-pelicula-listado
+    [mostrarBotonVolver]="false"
+    (handlerSeleccionarPelicula)="recibirPelicula($event)"
+  ></app-pelicula-listado>
+  <!-- #endregion Pelicula-Listado -->
+
+  <!-- #region Tabla-Paises -->
+  <app-tabla-paises
+    (handlerElegirPais)="recibirPais($event)"
+  ></app-tabla-paises>
+  <!-- #endregion Tabla-Paises -->
+
+  <!-- #region Detalle-Actor -->
+  <app-detalle-actor [actor]="actorSeleccionado"></app-detalle-actor>
+  <!-- #endregion Detalle-Actor -->
+
+  <!-- #region Boton Volver -->
+  <button
+    *ngIf="mostrarBotonVolver"
+    class="btn btn-dark mb-3"
+    routerLink="/busqueda"
+  >
+    Volver a busqueda
+  </button>
+  <!-- #endregion Boton Volver -->
+</div>

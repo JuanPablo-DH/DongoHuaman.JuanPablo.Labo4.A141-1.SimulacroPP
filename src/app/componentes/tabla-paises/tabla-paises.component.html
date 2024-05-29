@@ -1,18 +1,22 @@
 <div class="container">
   <label>Tabla-Paises</label>
-  <div class="tabla-scroll">
+  <div class="tabla-container">
     <table>
       <thead>
         <tr>
           <!--<th>INDEX</th>-->
+          <th>BANDERA</th>
           <th>PAIS</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of lista; let i = index">
           <!--<td>{{ i }}</td>-->
-          <td>
-            <img [src]="item.banderaPng" (click)="elegirPais(item.pais)" />
+          <td (click)="elegirPais(item.pais)">
+            <img [src]="item.banderaPng" />
+          </td>
+          <td (click)="elegirPais(item.pais)">
+            {{ capitalizeWords(item.pais) }}
           </td>
         </tr>
       </tbody>

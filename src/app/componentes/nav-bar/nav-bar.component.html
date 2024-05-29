@@ -1,49 +1,77 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <!-- Busqueda -->
+    <!-- #region Busqueda -->
     <a class="navbar-brand">Busqueda</a>
+    <!-- #endregion Busqueda -->
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- routerLink="/peliculas/listado" -->
+        <!-- #region Pelicula -->
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="cambiarSeccion(1)"
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/busqueda"
+            (click)="cambiarSeccion(1)"
             >Pelicula</a
           >
         </li>
+        <!-- #endregion Pelicula -->
+
+        <!-- #region Actor -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/busqueda"
+            (click)="cambiarSeccion(2)"
+            >Actor</a
+          >
+        </li>
+        <!-- #endregion Actor -->
+
+        <!-- #region Actor-Pelicula -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/busqueda"
+            (click)="cambiarSeccion(3)"
+            >Actor-Pelicula</a
+          >
+        </li>
+        <!-- #endregion Actor-Pelicula -->
+
+        <!-- #region Pelicula Listado [RouterLink] -->
         <li class="nav-item">
           <a
             class="nav-link"
             aria-current="page"
             routerLink="/peliculas/listado"
-            >Pelicula Listado</a
+            >Pelicula Listado [RouterLink]</a
           >
         </li>
+        <!-- #endregion Pelicula Listado [RouterLink] -->
 
-        <!-- routerLink="/actor/listado" -->
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="cambiarSeccion(2)"
-            >Actor</a
-          >
-        </li>
+        <!-- #region Actor Listado [RouterLink] -->
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="/actor/listado"
-            >Actor Listado</a
+            >Actor Listado [RouterLink]</a
           >
         </li>
-      </ul>
-      <!--
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        //¿Quien soy?
-        <li class="nav-item">
-          <a class="nav-link">¿Quién soy?</a>
-        </li>
+        <!-- #endregion Actor Listado [RouterLink] -->
 
-        //Cerrar sesion
+        <!-- #region Actor-Pelicula [RouterLink] -->
         <li class="nav-item">
-          <a class="nav-link" (click)="cerrarSesion()">Cerrar Sesión</a>
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/actor/actorpelicula"
+            >Actor-Pelicula [RouterLink]</a
+          >
         </li>
+        <!-- #endregion Actor-Pelicula [RouterLink] -->
       </ul>
-      -->
     </div>
   </div>
 </nav>

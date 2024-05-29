@@ -1,15 +1,22 @@
 <div class="container">
   <p>Actor-Listado</p>
-  <div class="container-listado">
-    <div class="actores">
-      <app-tabla-actor [lista]="actoresHardcodeados"></app-tabla-actor>
-    </div>
-    <button
-      *ngIf="mostrarBotonVolver"
-      class="btn btn-dark boton-volver"
-      routerLink="/busqueda"
-    >
-      Volver a busqueda
-    </button>
+  <!-- #region Actores -->
+  <div class="mb-3">
+    <app-tabla-actor
+      [detallado]="this.detallado"
+      [lista]="listaActores"
+      (handlerSeleccionarActor)="recibirActor($event)"
+    ></app-tabla-actor>
   </div>
+  <!-- #endregion Actores -->
+
+  <!-- #region Boton Volver -->
+  <button
+    *ngIf="mostrarBotonVolver"
+    class="btn btn-dark mb-3"
+    routerLink="/busqueda"
+  >
+    Volver a busqueda
+  </button>
+  <!-- #endregion Boton Volver -->
 </div>

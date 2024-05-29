@@ -46,5 +46,8 @@ Thumbs.db
 *-debug.log
 .runtimeconfig.json
 
-# NO SUBIR ESTE ARCHIVO
-/src/app/app.config.ts
+# Entorno
+/src/environments
+
+# Deploy Firebase
+/deploy-firebase

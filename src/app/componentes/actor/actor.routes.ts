@@ -21,6 +21,13 @@ export default [
       ),
   },
   {
+    path: 'actorpelicula',
+    loadComponent: () =>
+      import('./actor-pelicula/actor-pelicula.component').then(
+        (m) => m.ActorPeliculaComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'listado',
     pathMatch: 'full',

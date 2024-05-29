@@ -24,7 +24,7 @@ export class DatabaseService {
       const colRef = collection(this.firestore, bd);
       return collectionData(colRef);
     } catch (e) {
-      console.log('error DatabaseService.traerTodos()', e);
+      console.log('DatabaseService.traerTodos()', e);
     }
     return;
   }
@@ -35,7 +35,7 @@ export class DatabaseService {
       const docRef = doc(colRef, id);
       return docData(docRef);
     } catch (e) {
-      console.log('error DatabaseService.traerPorId()', e);
+      console.log('DatabaseService.traerPorId()', e);
     }
     return;
   }
@@ -45,7 +45,7 @@ export class DatabaseService {
       const colRef = collection(this.firestore, bd);
       addDoc(colRef, dato);
     } catch (e) {
-      console.log('error DatabaseService.insertar()', e);
+      console.log('DatabaseService.insertar()', e);
     }
   }
 
@@ -54,7 +54,7 @@ export class DatabaseService {
       const docuRef = doc(this.firestore, bd + `/${id}`);
       setDoc(docuRef, dato);
     } catch (e) {
-      console.log('error DatabaseService.insertarConId()', e);
+      console.log('DatabaseService.insertarConId()', e);
     }
   }
 
@@ -64,7 +64,7 @@ export class DatabaseService {
       const docRef = doc(colRef, id);
       updateDoc(docRef, dato);
     } catch (e) {
-      console.log('error DatabaseService.modificar()', e);
+      console.log('DatabaseService.modificar()', e);
     }
   }
 
@@ -74,7 +74,7 @@ export class DatabaseService {
       const docRef = doc(colRef, id);
       deleteDoc(docRef);
     } catch (e) {
-      console.log('error DatabaseService.eliminar()', e);
+      console.log('DatabaseService.eliminar()', e);
     }
   }
 }

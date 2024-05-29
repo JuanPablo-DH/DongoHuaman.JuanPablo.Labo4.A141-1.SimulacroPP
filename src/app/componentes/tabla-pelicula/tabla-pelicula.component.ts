@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pelicula } from '../../clases/pelicula';
 
 @Component({
@@ -11,8 +11,15 @@ import { Pelicula } from '../../clases/pelicula';
 })
 export class TablaPeliculaComponent {
   @Input() lista: any[] = [];
+  @Output() handlerSeleccionarPelicula = new EventEmitter<Pelicula>();
+
   constructor() {}
+
   getFormatoFechaEstreno(objeto: any) {
     return Pelicula.getFormatoFechaEstreno(objeto);
+  }
+
+  seleccionarPelicula(indice: number) {
+    this.handlerSeleccionarPelicula.emit(this.lista[indice]);
   }
 }

@@ -1,63 +1,107 @@
 <div class="container">
   <p>Actor-Alta</p>
-  <div *ngIf="!mostrarBotonAlta">
-    <div class="container-alta">
-      <div class="paises">
-        <app-tabla-paises
-          (handlerElegirPais)="recibirPais($event)"
-        ></app-tabla-paises>
+
+  <div *ngIf="!modoRouter">
+    <!-- #region Tabla-Paises -->
+    <app-tabla-paises
+      (handlerElegirPais)="recibirPais($event)"
+    ></app-tabla-paises>
+    <!-- #endregion Tabla-Paises -->
+
+    <!-- #region Formulario -->
+    <form [formGroup]="formActor">
+      <!-- #region Nombre -->
+      <div class="form-group mb-3 mt-3">
+        <label>Nombre</label>
+        <input class="form-control" type="text" formControlName="nombre" />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="!nombre.valid && nombre.dirty"
+        >
+          Nombre no valido
+        </div>
       </div>
-      <div class="inputs">
-        <p>Inputs-Actor</p>
+      <!-- #endregion Nombre -->
+
+      <!-- #region Apellido -->
+      <div class="form-group mb-3">
+        <label>Apellido</label>
+        <input class="form-control" type="text" formControlName="apellido" />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="!apellido.valid && apellido.dirty"
+        >
+          Apellido no valido
+        </div>
+      </div>
+      <!-- #endregion Apellido -->
+
+      <!-- #region Usuario -->
+      <div class="form-group mb-3">
+        <label>Usuario</label>
+        <input class="form-control" type="text" formControlName="usuario" />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="!usuario.valid && usuario.dirty"
+        >
+          Usuario no valido
+        </div>
+      </div>
+      <!-- #endregion Usuario -->
+
+      <!-- #region Correo -->
+      <div class="form-group mb-3">
+        <label>Correo</label>
+        <input class="form-control" type="text" formControlName="correo" />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="!correo.valid && correo.dirty"
+        >
+          Correo no valido
+        </div>
+      </div>
+      <!-- #endregion Correo -->
+
+      <!-- #region Pais -->
+      <div class="form-group mb-3">
+        <label>Pais</label>
         <input
           class="form-control"
           type="text"
-          placeholder="Ingrese su nombre"
-          [(ngModel)]="inputNombre"
-        /><br />
-        <input
-          class="form-control"
-          type="text"
-          placeholder="Ingrese su apellido"
-          [(ngModel)]="inputApellido"
-        /><br />
-        <input
-          class="form-control"
-          type="text"
-          placeholder="Ingrese su usuario"
-          [(ngModel)]="inputUsuario"
-        /><br />
-        <input
-          class="form-control"
-          type="text"
-          placeholder="Ingrese su correo"
-          [(ngModel)]="inputCorreo"
-        /><br />
-        <input
-          class="form-control"
-          type="text"
-          disabled="true"
-          placeholder="Seleccione su pais"
-          [(ngModel)]="inputPais"
-        /><br />
-        <button class="btn btn-dark boton-accion-alta" (click)="realizarAlta()">
+          readonly
+          placeholder="Seleccione un pais"
+          formControlName="pais"
+        />
+        <div class="alert alert-danger mt-2" *ngIf="!pais.valid && pais.dirty">
+          Pais no valido
+        </div>
+      </div>
+      <!-- #endregion Pais -->
+
+      <!-- #region Boton Alta -->
+      <div class="form-group mb-3" style="text-align: center">
+        <button
+          class="btn btn-dark"
+          [disabled]="!formActor.valid"
+          (click)="realizarAlta()"
+        >
           Realizar Alta
         </button>
-        <button
-          *ngIf="mostrarBotonVolver"
-          class="btn btn-dark boton-volver"
-          routerLink="/busqueda"
-        >
+      </div>
+      <!-- #endregion Boton Alta -->
+
+      <!-- #region Boton Volver -->
+      <div class="form-group mb-3" style="text-align: center">
+        <button class="btn btn-dark" routerLink="/busqueda">
           Volver a Busqueda
         </button>
       </div>
-    </div>
+      <!-- #endregion Boton Volver -->
+    </form>
+    <!-- #endregion Formulario -->
   </div>
-  <button
-    *ngIf="mostrarBotonAlta"
-    class="btn btn-dark boton-router-alta"
-    routerLink="/actor/alta"
-  >
+
+  <button *ngIf="modoRouter" class="btn btn-dark mb-3" routerLink="/actor/alta">
     Actor Alta
   </button>
 </div>

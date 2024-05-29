@@ -1,0 +1,46 @@
+<div class="container">
+  <p>Detalle-Actor</p>
+  <div *ngIf="actor.id !== 0">
+    <!-- #region Id -->
+    <div class="form-group mb-3">
+      <label>Id</label>
+      <input class="form-control" readonly [value]="actor.id" />
+    </div>
+    <!-- #endregion Id -->
+
+    <!-- #region Nombre -->
+    <div class="form-group mb-3">
+      <label>Nombre</label>
+      <input class="form-control" readonly [value]="actor.nombre" />
+    </div>
+    <!-- #endregion Nombre -->
+
+    <!-- #region Apellido -->
+    <div class="form-group mb-3">
+      <label>Apellido</label>
+      <input class="form-control" readonly [value]="actor.apellido" />
+    </div>
+    <!-- #endregion Apellido -->
+
+    <!-- #region Usuario -->
+    <div class="form-group mb-3">
+      <label>Usuario</label>
+      <input class="form-control" readonly [value]="actor.usuario" />
+    </div>
+    <!-- #endregion Usuario -->
+
+    <!-- #region Correo -->
+    <div class="form-group mb-3">
+      <label>Correo</label>
+      <input class="form-control" readonly [value]="actor.correo" />
+    </div>
+    <!-- #endregion Correo -->
+
+    <!-- #region Pais -->
+    <div class="form-group mb-3">
+      <label>Pais</label>
+      <input class="form-control" readonly [value]="actor.pais" />
+    </div>
+    <!-- #endregion Pais -->
+  </div>
+</div>

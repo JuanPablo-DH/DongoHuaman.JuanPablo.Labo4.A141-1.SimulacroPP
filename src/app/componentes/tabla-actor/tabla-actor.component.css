@@ -1,8 +1,10 @@
 .container {
   border: 2px solid black;
   border-radius: 15px;
+  margin-top: 15px;
 }
-.tabla-scroll {
+
+.tabla-container {
   max-height: 300px;
   overflow-y: scroll;
   margin-bottom: 15px;
@@ -11,22 +13,18 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
 thead {
   background-color: #f1f1f1;
 }
-
 th,
 td {
   padding: 8px 12px;
   border: 1px solid #ccc;
   text-align: left;
 }
-
 th {
   background-color: #ececec;
 }
-
 tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }

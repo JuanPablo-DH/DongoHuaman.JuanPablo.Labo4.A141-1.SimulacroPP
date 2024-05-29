@@ -1,1 +1,0 @@
-import{B as r,G as i,M as a,n}from"./chunk-MXI3KQ3F.js";import"./chunk-B2E3BGWY.js";var u=(()=>{let e=class e{};e.\u0275fac=function(o){return new(o||e)},e.\u0275cmp=n({type:e,selectors:[["app-actor"]],standalone:!0,features:[i],decls:1,vars:0,template:function(o,s){o&1&&r(0,"router-outlet")},dependencies:[a]});let t=e;return t})();export{u as ActorComponent};

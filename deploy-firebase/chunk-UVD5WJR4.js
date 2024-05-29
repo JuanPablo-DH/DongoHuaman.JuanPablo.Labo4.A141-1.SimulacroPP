@@ -1,1 +1,0 @@
-import"./chunk-B2E3BGWY.js";var o=[{path:"",redirectTo:"listado",pathMatch:"full"},{path:"alta",loadComponent:()=>import("./chunk-CDTCBSS6.js").then(t=>t.ActorAltaComponent)},{path:"listado",loadComponent:()=>import("./chunk-PGRJ7DS4.js").then(t=>t.ActorListadoComponent)},{path:"**",redirectTo:"listado",pathMatch:"full"}];export{o as default};

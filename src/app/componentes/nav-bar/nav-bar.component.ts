@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,14 +10,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent implements OnInit {
-  public email: string = '';
   @Output() handlerCambiarSeccion = new EventEmitter<any>();
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  cerrarSesion() {}
 
   cambiarSeccion(seccion: number) {
     this.handlerCambiarSeccion.emit(seccion);

@@ -1,9 +1,57 @@
 <div class="container">
   <p>Detalle-Pelicula</p>
-  <p>id: ...</p>
-  <p>nombre: ...</p>
-  <p>tipo: ...</p>
-  <p>fecha de estreno: ...</p>
-  <p>cantidad de publico: ...</p>
-  <p>foto de pelicula: ...</p>
+  <div *ngIf="pelicula.id !== 0">
+    <!-- #region Id -->
+    <div class="form-group mb-3">
+      <label>Id</label>
+      <input class="form-control" readonly [value]="pelicula.id" />
+    </div>
+    <!-- #endregion Id -->
+
+    <!-- #region Nombre -->
+    <div class="form-group mb-3">
+      <label>Nombre</label>
+      <input class="form-control" readonly [value]="pelicula.nombre" />
+    </div>
+    <!-- #endregion Nombre -->
+
+    <!-- #region Tipo -->
+    <div class="form-group mb-3">
+      <label>Tipo</label>
+      <input class="form-control" readonly [value]="pelicula.tipo" />
+    </div>
+    <!-- #endregion Tipo -->
+
+    <!-- #region Fecha De Estreno -->
+    <div class="form-group mb-3"></div>
+    <label>Fecha de Estreno</label>
+    <input
+      class="form-control mb-3"
+      readonly
+      [value]="getFormatoFechaEstreno(pelicula)"
+    />
+    <!-- #endregion Fecha De Estreno -->
+
+    <!-- #region Cantidad De Publico -->
+    <div class="form-group mb-3">
+      <label>Cantidad de publico</label>
+      <input
+        class="form-control mb-3"
+        readonly
+        [value]="pelicula.cantidadDePublico"
+      />
+    </div>
+    <!-- #endregion Cantidad De Publico -->
+
+    <!-- #region Foto -->
+    <div class="form-group mb-3">
+      <label>Foto</label>
+      <img
+        class="form-control"
+        [src]="pelicula.fotoPelicula"
+        style="height: 100px; width: 110px"
+      />
+    </div>
+    <!-- #endregion Foto -->
+  </div>
 </div>

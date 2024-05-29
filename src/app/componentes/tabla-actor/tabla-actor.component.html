@@ -1,27 +1,33 @@
 <div class="container">
-  <label>Tabla-Actores</label>
-  <div class="tabla-scroll">
+  <label>Tabla-Actor</label>
+  <div class="tabla-container">
     <table>
       <thead>
         <tr>
-          <th>INDEX</th>
+          <!--<th>INDEX</th>-->
           <th>ID</th>
           <th>NOMBRE</th>
           <th>APELLIDO</th>
-          <th>USUARIO</th>
-          <th>CORREO</th>
-          <th>PAIS</th>
+          <th *ngIf="detallado === true">USUARIO</th>
+          <th *ngIf="detallado === true">CORREO</th>
+          <th *ngIf="detallado === true">PAIS</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let actor of lista; let i = index">
-          <td>{{ i }}</td>
-          <td>{{ actor.id }}</td>
-          <td>{{ actor.nombre }}</td>
-          <td>{{ actor.apellido }}</td>
-          <td>{{ actor.usuario }}</td>
-          <td>{{ actor.correo }}</td>
-          <td>{{ actor.pais }}</td>
+          <!--<td (click)="seleccionarActor(i)">{{ i }}</td>-->
+          <td (click)="seleccionarActor(i)">{{ actor.id }}</td>
+          <td (click)="seleccionarActor(i)">{{ actor.nombre }}</td>
+          <td (click)="seleccionarActor(i)">{{ actor.apellido }}</td>
+          <td *ngIf="detallado === true" (click)="seleccionarActor(i)">
+            {{ actor.usuario }}
+          </td>
+          <td *ngIf="detallado === true" (click)="seleccionarActor(i)">
+            {{ actor.correo }}
+          </td>
+          <td *ngIf="detallado === true" (click)="seleccionarActor(i)">
+            {{ actor.pais }}
+          </td>
         </tr>
       </tbody>
     </table>

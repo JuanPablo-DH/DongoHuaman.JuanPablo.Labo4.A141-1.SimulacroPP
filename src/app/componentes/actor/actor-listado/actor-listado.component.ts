@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TablaActorComponent } from '../../tabla-actor/tabla-actor.component';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ActorService } from '../../../servicios/actor.service';
+import { Actor } from '../../../clases/actor';
 
 @Component({
   selector: 'app-actor-listado',
@@ -12,8 +14,10 @@ import { RouterLink } from '@angular/router';
 })
 export class ActorListadoComponent implements OnInit {
   @Input() mostrarBotonVolver = true;
+  @Input() detallado = true;
+  @Output() handlerSeleccionarActor = new EventEmitter<Actor>();
   listaActores: any[] = [];
-  actoresHardcodeados: any[] = [
+  private actoresHardcodeados: any[] = [
     {
       id: 1,
       nombre: 'Leonardo',
@@ -48,11 +52,24 @@ export class ActorListadoComponent implements OnInit {
     },
   ];
 
+  constructor(private actorService: ActorService) {}
+
   ngOnInit(): void {
-    /* ### CUIDADO CON ESTO ###
+    /*
+    // ### CUIDADO CON ESTO ###
     for (let i = 0; i < this.actoresHardcodeados.length; i++) {
       this.actorService.insertarConId(this.actoresHardcodeados[i]);
     }
     */
+    this.actorService.traerTodos()?.subscribe((r) => {
+      this.listaActores = [];
+      for (let item of r) {
+        this.listaActores.push(Actor.parseObjetoActor(item));
+      }
+    });
+  }
+
+  recibirActor($event: Actor) {
+    this.handlerSeleccionarActor.emit($event);
   }
 }

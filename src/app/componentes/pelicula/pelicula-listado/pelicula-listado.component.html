@@ -1,15 +1,21 @@
 <div class="container">
   <p>Pelicula-Listado</p>
-  <div class="container-listado">
-    <div class="peliculas">
-      <app-tabla-pelicula [lista]="listaPeliculas"></app-tabla-pelicula>
-    </div>
-    <button
-      *ngIf="mostrarBotonVolver"
-      class="btn btn-dark boton-volver"
-      routerLink="/busqueda"
-    >
-      Volver a buqueda
-    </button>
+  <!-- #region Peliculas -->
+  <div class="mb-3">
+    <app-tabla-pelicula
+      [lista]="listaPeliculas"
+      (handlerSeleccionarPelicula)="recibirPelicula($event)"
+    ></app-tabla-pelicula>
   </div>
+  <!-- #endregion Peliculas -->
+
+  <!-- #region Boton Volver -->
+  <button
+    *ngIf="mostrarBotonVolver"
+    class="btn btn-dark mb-3"
+    routerLink="/busqueda"
+  >
+    Volver a busqueda
+  </button>
+  <!-- #endregion Boton Volver -->
 </div>

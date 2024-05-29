@@ -1,24 +1,39 @@
 <app-nav-bar (handlerCambiarSeccion)="recibirSeccion($event)"></app-nav-bar>
-<!--<router-outlet></router-outlet>-->
-<div class="container-outlet">
-  <app-pelicula-listado
-    *ngIf="seccion === 1"
-    [mostrarBotonVolver]="false"
-  ></app-pelicula-listado>
-  <app-detalle-pelicula *ngIf="seccion === 1"></app-detalle-pelicula>
-  <app-pelicula-alta
-    *ngIf="seccion === 1"
-    [mostrarBotonVolver]="false"
-    [mostrarBotonAlta]="true"
-  ></app-pelicula-alta>
 
-  <app-actor-listado
-    *ngIf="seccion === 2"
-    [mostrarBotonVolver]="false"
-  ></app-actor-listado>
-  <app-actor-alta
-    *ngIf="seccion === 2"
-    [mostrarBotonVolver]="false"
-    [mostrarBotonAlta]="true"
-  ></app-actor-alta>
-</div>
+@if(seccion === 1) {
+
+<!-- #region Pelicula-Listado -->
+<app-pelicula-listado
+  [mostrarBotonVolver]="false"
+  (handlerSeleccionarPelicula)="recibirPelicula($event)"
+></app-pelicula-listado>
+<!-- #endregion Pelicula-Listado -->
+
+<!-- #region Detalle-Pelicula -->
+<app-detalle-pelicula [pelicula]="peliculaSeleccionada"></app-detalle-pelicula>
+<!-- #endregion Detalle-Pelicula -->
+
+<!-- #region Pelicula-Alta -->
+<app-pelicula-alta [modoRouter]="true"></app-pelicula-alta>
+<!-- #endregion Pelicula-Alta -->
+
+} @else if(seccion === 2) {
+
+<!-- #region Actor-Listado -->
+<app-actor-listado
+  [detallado]="false"
+  [mostrarBotonVolver]="false"
+></app-actor-listado>
+<!-- #endregion Actor-Listado -->
+
+<!-- #region Actor-Alta -->
+<app-actor-alta [modoRouter]="true"></app-actor-alta>
+<!-- #endregion Actor-Alta -->
+
+} @else if(seccion === 3) {
+
+<!-- #region Actor-Pelicula -->
+<app-actor-pelicula [mostrarBotonVolver]="false"></app-actor-pelicula>
+<!-- #endregion Actor-Pelicula -->
+
+}

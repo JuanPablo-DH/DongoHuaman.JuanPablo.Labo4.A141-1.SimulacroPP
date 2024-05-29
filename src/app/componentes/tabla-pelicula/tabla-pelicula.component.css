@@ -1,32 +1,17 @@
 .container {
   border: 2px solid black;
   border-radius: 15px;
-}
-.tabla-scroll {
-  max-height: 300px;
-  overflow-y: scroll;
-  margin-bottom: 15px;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
+  margin-top: 15px;
 }
 
-thead {
-  background-color: #f1f1f1;
+.imagenes-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  gap: 5px;
 }
-
-th,
-td {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  text-align: left;
-}
-
-th {
-  background-color: #ececec;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+img {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
 }

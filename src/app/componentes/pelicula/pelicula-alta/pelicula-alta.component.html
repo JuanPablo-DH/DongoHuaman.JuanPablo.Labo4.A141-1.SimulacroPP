@@ -1,27 +1,190 @@
 <div class="container">
   <p>Pelicula-Alta</p>
-  <div *ngIf="!mostrarBotonAlta">
-    <p>Alta</p>
-    <p>id: ...</p>
-    <p>nombre: ...</p>
-    <p>tipo: ...</p>
-    <p>fecha de estreno: ...</p>
-    <p>cantidad de publico: ...</p>
-    <p>foto de pelicula: ...</p>
+
+  <div *ngIf="!modoRouter">
+    <!-- #region Actores -->
+    <app-actor-listado
+      [detallado]="false"
+      [mostrarBotonVolver]="false"
+      (handlerSeleccionarActor)="recibirActor($event)"
+    ></app-actor-listado>
+    <!-- #endregion Actores -->
+
+    <!-- #region Formulario -->
+    <form [formGroup]="formPelicula">
+      <!-- #region Nombre -->
+      <div class="form-group mb-3 mt-3">
+        <label>Nombre</label>
+        <input class="form-control" formControlName="nombre" />
+        <!-- #region ERROR -->
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="!nombre.valid && nombre.dirty"
+        >
+          Nombre no valido
+        </div>
+        <!-- #endregion ERROR -->
+      </div>
+      <!-- #endregion Nombre -->
+
+      <!-- #region Tipo -->
+      <div class="form-group mb-3">
+        <label>Tipo</label><br />
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-dark" ngbDropdownToggle>
+            {{ tipo.value === "" ? "Seleccionar Tipo" : tipo.value }}
+          </button>
+          <div ngbDropdownMenu>
+            <button (click)="setTipo('')" ngbDropdownItem>
+              Seleccionar Tipo
+            </button>
+            <button (click)="setTipo('Ciencia Ficción')" ngbDropdownItem>
+              Ciencia Ficción
+            </button>
+            <button (click)="setTipo('Suspenso')" ngbDropdownItem>
+              Suspenso
+            </button>
+            <button (click)="setTipo('Romántica')" ngbDropdownItem>
+              Romántica
+            </button>
+            <button (click)="setTipo('Acción')" ngbDropdownItem>Acción</button>
+          </div>
+        </div>
+        <!-- #region ERROR -->
+        <div class="alert alert-danger mt-1" *ngIf="tipo.invalid && tipo.dirty">
+          Tipo no valido
+        </div>
+        <!-- #endregion ERROR -->
+      </div>
+      <!-- #endregion Tipo -->
+
+      <!-- #region Dia De Estreno-->
+      <div class="form-group mb-3">
+        <label>Día de Estreno</label>
+        <div class="input-group">
+          <input
+            class="form-control"
+            placeholder="año-mes-dia"
+            readonly
+            name="dp"
+            ngbDatepicker
+            #d="ngbDatepicker"
+            formControlName="diaEstreno"
+          />
+          <button
+            class="btn btn-dark bi bi-calendar3"
+            (click)="d.toggle()"
+          ></button>
+        </div>
+        <!-- #region ERROR -->
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="getDatetimePicker() < getCurrentDateTime()"
+        >
+          El dia de estreno debe ser como minimo desde mañana en adelante
+        </div>
+        <!-- #endregion ERROR -->
+      </div>
+      <!-- #endregion Dia De Estreno-->
+
+      <!-- #region Hora De Estreno-->
+      <div class="form-group mb-3">
+        <label>Hora de Estreno</label>
+        <ngb-timepicker formControlName="horaEstreno" />
+      </div>
+      <!-- #endregion Hora De Estreno-->
+
+      <!-- #region Cantidad De Publico -->
+      <div class="form-group mb-3">
+        <label>Cantidad de Público</label>
+        <input
+          class="form-control"
+          type="number"
+          formControlName="cantidadPublico"
+        />
+        <!-- #region ERROR -->
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="cantidadPublico.value === 0 && cantidadPublico.dirty"
+        >
+          Cantidad no valida
+        </div>
+        <!-- #endregion ERROR -->
+      </div>
+      <!-- #endregion Cantidad De Publico -->
+
+      <!-- #region Foto -->
+      <div class="form-group mb-3">
+        <label>Foto</label>
+        <input
+          class="form-control"
+          #inputFoto
+          type="file"
+          (change)="setFoto($event)"
+        />
+        <!-- #region ERROR -->
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="foto.value === undefined && foto.dirty"
+        >
+          Es necesario subir una foto
+        </div>
+        <!-- #endregion ERROR -->
+      </div>
+      <!-- #endregion Foto -->
+
+      <!-- #region Lista De Actores -->
+      <div class="form-group mb-3">
+        <label>Actores involucrados</label>
+        <div
+          style="
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+          "
+        >
+          <div *ngFor="let item of listaActores.value">{{ item.id }},</div>
+        </div>
+        <!-- #region ERROR -->
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="listaActores.value.length === 0 && listaActores.dirty"
+        >
+          Es necesario elegir actores
+        </div>
+        <!-- #endregion ERROR -->
+      </div>
+      <!-- #endregion Input Lista De Actores -->
+
+      <!-- #region Boton Realizar Alta -->
+      <div class="form-group" style="text-align: center">
+        <button
+          class="btn btn-dark mb-3"
+          [disabled]="!formPelicula.valid"
+          (click)="realizarAlta()"
+        >
+          Realizar Alta
+        </button>
+      </div>
+      <!-- #endregion Boton Realizar Alta -->
+
+      <!-- #region Boton Volver a Busqueda -->
+      <div class="form-group" style="text-align: center">
+        <button class="btn btn-dark mb-3" routerLink="/busqueda">
+          Volver a Busqueda
+        </button>
+      </div>
+      <!-- #endregion Boton Volver a Busqueda -->
+    </form>
+    <!-- #endregion Formulario -->
   </div>
 
   <button
-    *ngIf="mostrarBotonAlta"
-    class="btn btn-dark boton-router-alta"
+    *ngIf="modoRouter"
+    class="btn btn-dark mb-3"
     routerLink="/peliculas/alta"
   >
     Pelicula Alta
-  </button>
-  <button
-    *ngIf="mostrarBotonVolver"
-    class="btn btn-dark boton-volver"
-    routerLink="/busqueda"
-  >
-    Volver a Busqueda
   </button>
 </div>

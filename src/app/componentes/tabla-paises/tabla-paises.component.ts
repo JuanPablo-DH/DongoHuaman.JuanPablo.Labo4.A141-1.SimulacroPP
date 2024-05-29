@@ -33,4 +33,11 @@ export class TablaPaisesComponent implements OnInit {
       console.log('TablaPaisesComponent.traerBanderas()', e);
     }
   }
+
+  capitalizeWords(str: string): string {
+    return str
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
 }
